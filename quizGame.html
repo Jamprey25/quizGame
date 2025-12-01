@@ -7,29 +7,63 @@
     <link rel="stylesheet" href="./quizGame.css">
 </head>
 <body>
+    <div class = container>
+        <div id = "quizBox" class = "screen active">
+            <h1>Quiz Time!</h1>
+            <p>Test your knowledge with these fun questions</p>
+            <button id="startButton">
+                Start Quiz
+            </button>
+        </div>
 
-<div id = "quizBox" >
-    <div>
-        <h1>Quiz Time!</h1>
+        <div id = answerScreen class = "screen">    
+            <div id = answerBox>
+                <div id = header>
+                    <h2 id = questionText>Question Goes Here</h2>
+                
+                    <div id = infoBox>
+                        <p id = questionNumber>Question <span id = "currentQuestion">1</span> of <span id = "totalQuestions">5</span></p>
+                        <p id = score>Score: 0</p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div id = answerButtons>
+            </div>
+            <div id = progresBar>
+                <div id = progres></div>
+            </div>
+        </div>
+            
+            
+            
+            <div id = "resultScreen" class = "screen" >
+                <h1>Quiz Results</h1>
+                <div id = resultInfo>
+                    <p>You scored <span id = finalScore>0</span> out of <span id =maxScore>5</span></p>
+                    <div id = resultMessage>
+                        Good Job
+                    </div>
+                </div>
+                <button id = restartButton>
+                    Restart Quiz
+                </button>
+            </div>
+
+
+
+ 
+        <div id = resultBox>
+        </div>
     </div>
-    <div>
-        <p>Test your knowledge with these fun questions</p>
-    </div>
-    <div>
-        <button id="startButton">
-           <p>Start Quiz</p> 
-        </button>
-    </div>
-
-
-
-
-</div>
 
 
 
 
 
-
+<script src="./quizGame.js"></script>
 </body>
-<html
+</html>
