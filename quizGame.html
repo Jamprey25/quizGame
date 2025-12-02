@@ -9,11 +9,18 @@
 <body>
     <div class = container>
         <div id = "quizBox" class = "screen active">
-            <h1>Quiz Time!</h1>
+            <h1>How Good is Your Geography?</h1>
             <p>Test your knowledge with these fun questions</p>
-            <button id="startButton">
+            <button id="startButton" class = "orangeButton">
                 Start Quiz
             </button>
+        </div>
+
+        <div id = "diffScreen" class = "screen">
+            <h1>Chose The Difficulty</h1>
+            <button id = "easy" class = "orangeButton">Easy</button>
+            <button id = "medium" class = "orangeButton">Medium</button>
+            <button id = "hard" class = "orangeButton">Hard</button>
         </div>
 
         <div id = answerScreen class = "screen">    
@@ -31,10 +38,10 @@
                 </div>
 
             </div>
-            <div id = answerButtons class = "answerButton">
+            <div id = answerButtons>
             </div>
-            <div id = progresBar>
-                <div id = progres></div>
+            <div id = progressBar>
+                <div id = progress></div>
             </div>
         </div>
             
@@ -48,7 +55,7 @@
                         Good Job
                     </div>
                 </div>
-                <button id = restartButton>
+                <button id = restartButton class = "orangeButton">
                     Restart Quiz
                 </button>
             </div>

@@ -12,8 +12,37 @@ const maxScore = document.getElementById("maxScore");
 const restartButton = document.getElementById("restartButton");
 const progressBar= document.getElementById("progress");
 const resultMessage = document.getElementById("resultMessage"); // missing before
+const easyButton = document.getElementById("easy");
+const mediumButton = document.getElementById("medium");
+const hardButton = document.getElementById("hard");
+const diffScreen = document.getElementById("diffScreen");
 
-const quizQuestions = [
+let quizQuestions;
+
+// Quiz state variables
+let currentQuestionIndex = 0;
+let score = 0;
+let answersDisabled = false;
+
+
+//event listeners
+startButton.addEventListener("click", choseDifficulty);
+easyButton.addEventListener("click", startQuiz);
+mediumButton.addEventListener("click", startQuiz);
+hardButton.addEventListener("click", startQuiz);
+restartButton.addEventListener("click", restartQuiz);
+
+
+//functions 
+function choseDifficulty(){
+startScreen.classList.remove("active");
+diffScreen.classList.add("active");
+}
+
+function startQuiz(e) {
+  switch(e.target.id){
+    case "easy":
+      quizQuestions = [
 
        
   {
@@ -106,28 +135,204 @@ const quizQuestions = [
       { text: "Alps", correct: false }
     ]
   }
-];
-
-// Quiz state variables
-let currentQuestionIndex = 0;
-let score = 0;
-let answersDisabled = false;
-
-totalQuestions.textContent = quizQuestions.length;
-maxScore.textContent = quizQuestions.length;
-
-//event listeners
-startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", restartQuiz);
-
-//functions 
-
-function startQuiz() {
+      ];
+    break;
+    case "medium":
+      quizQuestions = [
+  {
+    question: "What is the capital of Australia?",
+    answers: [
+      { text: "Sydney", correct: false },
+      { text: "Melbourne", correct: false },
+      { text: "Canberra", correct: true },
+      { text: "Perth", correct: false }
+    ]
+  },
+  {
+    question: "Which African country has the largest population?",
+    answers: [
+      { text: "Egypt", correct: false },
+      { text: "Ethiopia", correct: false },
+      { text: "Nigeria", correct: true },
+      { text: "South Africa", correct: false }
+    ]
+  },
+  {
+    question: "Which country does NOT border China?",
+    answers: [
+      { text: "India", correct: false },
+      { text: "Russia", correct: false },
+      { text: "Thailand", correct: true },
+      { text: "Mongolia", correct: false }
+    ]
+  },
+  {
+    question: "What is the longest river in South America?",
+    answers: [
+      { text: "Paraná River", correct: false },
+      { text: "Amazon River", correct: true },
+      { text: "Orinoco River", correct: false },
+      { text: "São Francisco River", correct: false }
+    ]
+  },
+  {
+    question: "Which country owns Greenland?",
+    answers: [
+      { text: "United Kingdom", correct: false },
+      { text: "Canada", correct: false },
+      { text: "Denmark", correct: true },
+      { text: "Norway", correct: false }
+    ]
+  },
+  {
+    question: "What is the smallest country in the world?",
+    answers: [
+      { text: "Monaco", correct: false },
+      { text: "San Marino", correct: false },
+      { text: "Vatican City", correct: true },
+      { text: "Liechtenstein", correct: false }
+    ]
+  },
+  {
+    question: "The Great Barrier Reef is located off the coast of which country?",
+    answers: [
+      { text: "Philippines", correct: false },
+      { text: "Australia", correct: true },
+      { text: "Indonesia", correct: false },
+      { text: "New Zealand", correct: false }
+    ]
+  },
+  {
+    question: "Which desert is the largest hot desert in the world?",
+    answers: [
+      { text: "Gobi Desert", correct: false },
+      { text: "Sahara Desert", correct: true },
+      { text: "Arabian Desert", correct: false },
+      { text: "Kalahari Desert", correct: false }
+    ]
+  },
+  {
+    question: "Which European city is divided by the Danube River?",
+    answers: [
+      { text: "Budapest", correct: true },
+      { text: "Vienna", correct: false },
+      { text: "Prague", correct: false },
+      { text: "Belgrade", correct: false }
+    ]
+  },
+  {
+    question: "Which country has the most natural lakes?",
+    answers: [
+      { text: "United States", correct: false },
+      { text: "Russia", correct: false },
+      { text: "Canada", correct: true },
+      { text: "Finland", correct: false }
+    ]
+  }
+      ];
+    break;
+    case "hard":
+      quizQuestions = [
+  {
+    question: "Which country has the longest coastline in the world?",
+    answers: [
+      { text: "Australia", correct: false },
+      { text: "Russia", correct: false },
+      { text: "Canada", correct: true },
+      { text: "Indonesia", correct: false }
+    ]
+  },
+  {
+    question: "What is the capital city of Kazakhstan?",
+    answers: [
+      { text: "Astana (Nur-Sultan)", correct: true },
+      { text: "Almaty", correct: false },
+      { text: "Bishkek", correct: false },
+      { text: "Tashkent", correct: false }
+    ]
+  },
+  {
+    question: "Which river is the longest in Europe?",
+    answers: [
+      { text: "Danube", correct: false },
+      { text: "Volga", correct: true },
+      { text: "Rhine", correct: false },
+      { text: "Dnieper", correct: false }
+    ]
+  },
+  {
+    question: "What is the deepest oceanic trench in the world?",
+    answers: [
+      { text: "Java Trench", correct: false },
+      { text: "Mariana Trench", correct: true },
+      { text: "Puerto Rico Trench", correct: false },
+      { text: "Tonga Trench", correct: false }
+    ]
+  },
+  {
+    question: "Which country contains the most time zones?",
+    answers: [
+      { text: "United States", correct: false },
+      { text: "Russia", correct: false },
+      { text: "France", correct: true },
+      { text: "China", correct: false }
+    ]
+  },
+  {
+    question: "The city of Timbuktu is located in which country?",
+    answers: [
+      { text: "Niger", correct: false },
+      { text: "Mali", correct: true },
+      { text: "Chad", correct: false },
+      { text: "Senegal", correct: false }
+    ]
+  },
+  {
+    question: "What is the largest island in the Mediterranean Sea?",
+    answers: [
+      { text: "Sardinia", correct: false },
+      { text: "Sicily", correct: true },
+      { text: "Cyprus", correct: false },
+      { text: "Crete", correct: false }
+    ]
+  },
+  {
+    question: "Which country has the highest average elevation?",
+    answers: [
+      { text: "Nepal", correct: false },
+      { text: "Tajikistan", correct: false },
+      { text: "Bhutan", correct: true },
+      { text: "Kyrgyzstan", correct: false }
+    ]
+  },
+  {
+    question: "Lake Baikal, the deepest lake in the world, is located in which country?",
+    answers: [
+      { text: "China", correct: false },
+      { text: "Russia", correct: true },
+      { text: "Mongolia", correct: false },
+      { text: "Kazakhstan", correct: false }
+    ]
+  },
+  {
+    question: "Which two continents are entirely in the Southern Hemisphere?",
+    answers: [
+      { text: "Africa and Antarctica", correct: false },
+      { text: "Australia and Antarctica", correct: true },
+      { text: "South America and Africa", correct: false },
+      { text: "Australia and South America", correct: false }
+    ]
+  }
+      ];
+    break;
+  }
+  totalQuestions.textContent = quizQuestions.length;
+  maxScore.textContent = quizQuestions.length;  
     console.log("Quiz Started");
     currentQuestionIndex = 0;
     score = 0;
     currentScore.textContent = score;
-    startScreen.classList.remove("active");
+    diffScreen.classList.remove("active");
     answerScreen.classList.add("active");
     showQuestion();
 }
@@ -138,7 +343,8 @@ function showQuestion() {
 
     // update question number and progress
     if (currentQuestionNumber) currentQuestionNumber.textContent = currentQuestionIndex + 1;
-    const progressPercent = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+    
+    const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
     if (progressBar) progressBar.style.width = progressPercent + "%";
 
     // question text
@@ -165,7 +371,8 @@ function selectAnswer(event){
 
     // show correct/wrong state on every button
     Array.from(answerButtons.children).forEach(button =>{
-        if(button.dataset.correct === "true"){
+      // button.classList.add("answerbuttons");
+      if(button.dataset.correct === "true"){
             button.classList.add("correct");
         } else {
             button.classList.add("wrong");
@@ -174,7 +381,7 @@ function selectAnswer(event){
     });
 
     if(isCorrect){
-        score++;
+        score+=10;
         currentScore.textContent = score;
     }
 
@@ -192,7 +399,7 @@ function showResult(){
     answerScreen.classList.remove("active");
     resultScreen.classList.add("active");
 
-    const percentage = Math.round((score / quizQuestions.length) * 100);
+    const percentage = Math.round((score / quizQuestions.length) * 10);
     
     finalScore.textContent = percentage;
     maxScore.textContent = quizQuestions.length *10;
@@ -227,6 +434,6 @@ function showResult(){
 function restartQuiz() {
     resultScreen.classList.remove("active");
 
-    startQuiz();
+   startScreen.classList.add("active");
 }
 

@@ -57,7 +57,7 @@ body{
    background-color: #e86a33;
    border-radius: 0.25rem;
    border: none;
-   width: 120px;
+   width: 140px;
    height: 40px;
 }
 
@@ -72,23 +72,43 @@ body{
     flex-direction: column;
     gap: 10px;
     margin-bottom: 25px;
+    border-radius: 0.25rem;
+  
     background-color: white;
     border: none;
+   
 }
-.answerButton{
-    background-color: #f8f0e5;
-    color: #333;
+
+.orangeButton{
+   color: white;
+    background-color: #e86a33;
+    border-radius: 0.25rem;
     border: none;
-    border-radius: 0.5rem;
-    padding:1rem;
+    width: 140px;
+    height: 40px;
     cursor: pointer;
-    text-align: left;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
-.answerButton:hover{
+.orangeButton:hover{
     background-color: #eadbc8;
     border-color:#dac0ae;
     
+}
+.answerButton{
+    padding: 12px 20px;
+    background-color: white;
+    border: 2px solid #e86a33;
+    border-radius: 0.25rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 0.5rem;
+}
+.answerButton:hover{
+    background-color: #f8f0e5;
+    border-color: #dac0ae;
 }
 .answerButton.correct{
     background-color: #c8e6c9;
@@ -137,19 +157,8 @@ body{
     font-weight: bold;
     color:#e86a33
 }
-#restartButton{
-    color: white;
-    background-color: #e86a33;
-    border-radius: 0.25rem;
-    border: none;
-    width: 140px;
-    height: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-#restartButton:hover{
-    background-color: #d45b28;
-}
+
+
 
 
 @media(max-width: 500px){
